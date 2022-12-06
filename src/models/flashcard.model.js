@@ -8,9 +8,6 @@ const FlashcardSchema = new mongoose.Schema(
         description: {
             type: String,
         },
-        content: {
-            type: String
-        },
         wordIds: [
             {
                 type: mongoose.Schema.Types.ObjectId,

@@ -15,7 +15,7 @@ app.use(
 app.use(express.json());
 require('./routes')(app);
 
-const { PORT, URI } = process.env;
+const { PORT, URI, LANGUAGES } = process.env;
 mongoose.connect(URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -24,5 +24,10 @@ mongoose.connect(URI, {
 });
 
 app.listen(PORT, () => {
+    const languages = JSON.parse(LANGUAGES);
+    console.log(languages);
+    for (let i = 0; i < languages.length; i++) {
+        console.log(languages[i]);
+    }
     console.log(`Server is running on port ${PORT}`);
 });
